@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Parks Search</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>National Parks Search</h1>
+
+        <form>
+            <label for="photo-num">What area would you like to search?</label>
+            <p>*If you'd like to search for more than one state, separate the appropriate state abbreviations with a comma and a space. Note that searching for multiple states will search for parks that are located in BOTH states.</p>
+            <br>
+            <br>
+            <label>State abbreviation:</label>
+            <input type="text" id="user-entry" name="user-entry" required>
+            <br>
+            <label>Max number of results:</label>
+            <input type='number' id="num-results" name="user-entry" value="10">
+            <br>
+            <input type="submit" value="Search area">
+        </form>
+        <section class="results hidden">
+            <h2>Results:</h2>
+            <ul>
+                <li class="result-entry">Full Name <br><a href="">text</a><br><p>Description</p><br>1000 Main Street<br>Philly, PA 19146</li>
+            </ul>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
