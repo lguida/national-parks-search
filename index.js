@@ -50,13 +50,13 @@ function displayResults(responseJson,area) { //change area here to be the # resp
     for (i = 0; i < totalToPrint; i++){
         //console.log(responseJson.data[i].addresses[0].line1)
         if (responseJson.data[i].addresses.length === 0){
-            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p></li>`)
+            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p></li>`)
         }
         else if (responseJson.data[i].addresses[0].line2.length === 0){
-            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p><br>${responseJson.data[i].addresses[0].line1}<br>${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</li><br>`)
+            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p><br>${responseJson.data[i].addresses[0].line1}<br>${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</li><br>`)
         }
         else{
-            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p><br>${responseJson.data[i].addresses[0].line1}<br>${responseJson.data[i].addresses[0].line2}<br>${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</li><br>`)
+            $('ul').append(`<li class="result-entry">${responseJson.data[i].fullName}<br><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a><br><p>${responseJson.data[i].description}</p><br>${responseJson.data[i].addresses[0].line1}<br>${responseJson.data[i].addresses[0].line2}<br>${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</li><br>`)
         }
         console.log(responseJson.data[i].fullName)
     }
