@@ -1,10 +1,15 @@
-const queryParams = {
-    limit: 10,
-    api_key: "VdqOupKkaB6Xec8sdloSahpIW90t0bDcxleeYO9B",
-    stateCode: []
-}
+'use strict'
+
 const searchUrl = "https://developer.nps.gov/api/v1/parks?"
 let all = ''
+const apiKey = "VdqOupKkaB6Xec8sdloSahpIW90t0bDcxleeYO9B"
+
+const queryParams = {
+    limit: 10,
+    api_key: apiKey,
+    stateCode: []
+}
+
 
 function formatQueryParams(){
     const queryItems = Object.keys(queryParams)
@@ -25,24 +30,24 @@ function getParksList() {
     fetch(url)
       .then(response => response.json())
       .then(responseJson => 
-        displayResults(responseJson)) //change area to # responses
-      //.catch(error => alert('Something went wrong. Try again later.')); //disable this for debugging
+        displayResults(responseJson))
+      .catch(error => alert('Something went wrong. Try again later.')); //disable this for debugging
 }
   
-function displayResults(responseJson,area) { //change area here to be the # responses to list
-    console.log(responseJson);
+function displayResults(responseJson) {
+    console.log(responseJson)
     all = responseJson
     console.log(all)    
     //unhides the results list
-    $('.results').removeClass('hidden');
+    $('.results').removeClass('hidden')
 
     //finds out how many times to iterate
     let totalToPrint = 0;
     if (parseInt(responseJson.limit) < parseInt(responseJson.total)){
-        totalToPrint = responseJson.limit;
+        totalToPrint = responseJson.limit
     }
     else{
-        totalToPrint = responseJson.total;
+        totalToPrint = responseJson.total
     }
     console.log(totalToPrint)
 
@@ -64,12 +69,12 @@ function displayResults(responseJson,area) { //change area here to be the # resp
   
 function watchForm() {
     $('form').submit(event => {
-        event.preventDefault();
+        event.preventDefault()
         //this empties the list so a new list can be displayed
-        $('ul').empty(); 
+        $('ul').empty()
         queryParams.stateCode = []   
         //this finds the user entry and sends it to the functions
-        let states = $(event.currentTarget).find('#user-entry').val(); 
+        let states = $(event.currentTarget).find('#user-entry').val()
         let statesNum = ((states.length - 2)/4) +1;
         console.log(statesNum)
         for (i = 0; i < statesNum; i++){
@@ -77,13 +82,13 @@ function watchForm() {
             states = states.replace(String(queryParams.stateCode[i] +', '),'')
             console.log(states)
         }
-        //queryParams.stateCode = $(event.currentTarget).find('#user-entry').val(); 
-        queryParams.limit = $(event.currentTarget).find('#num-results').val(); 
-        getParksList();
+        //queryParams.stateCode = $(event.currentTarget).find('#user-entry').val()
+        queryParams.limit = $(event.currentTarget).find('#num-results').val()
+        getParksList()
     }); //find # responses in this fnct?
 }
   
 $(function() {
-    console.log('App loaded, waiting for submit.');
-    watchForm();
+    console.log('App loaded, waiting for submit.')
+    watchForm()
 });
