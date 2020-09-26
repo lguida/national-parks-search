@@ -3,6 +3,7 @@
 const searchUrl = "https://developer.nps.gov/api/v1/parks?"
 let all = ''
 const apiKey = "VdqOupKkaB6Xec8sdloSahpIW90t0bDcxleeYO9B"
+let i = 0
 
 const queryParams = {
     limit: 10,
